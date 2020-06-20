@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Tombol from "./components/Tombol";
+import Hitung from "./components/Hitung";
 
 function App() {
+  const [hitung, setHitung] = useState(0);
+
+  function tambahNilai() {
+    setHitung(hitung + 10);
+  }
+
+  function kurangNilai() {
+    setHitung(hitung - 10);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Belajar React</h1>
+      <Hitung nilaiHitung={hitung} />
+
+      <Tombol hitungAngka={tambahNilai} namaTombol="Tambah" />
+
+      <Tombol hitungAngka={kurangNilai} namaTombol="Kurang" />
     </div>
   );
 }
